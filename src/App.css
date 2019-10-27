@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: rgb(230, 230, 230);
+}
+
+.container {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.card {
+  border-radius: 6px;
+  box-shadow: rgba(44, 44, 44, 0.637) 1px 2px 5px;
+  overflow: hidden;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: rgba(44, 44, 44, 0.637) 3px 5px 10px;
+}
+
+.avatar {
+  border-radius: 5px;
+  display: inline-block;
+  margin-right: 15px;
+  width: 100px;
+}
+
+.title {
+  display: inline-block;
+  margin-bottom: 5px;
+  color: rgb(58, 58, 58);
+}
+
+.description {
+  margin-bottom: 5px;
+}
+
+.stars,
+.issues {
+  display: inline-block;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #122836;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  position: relative;
+  left: 45%;
+  top: 40%;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .avatar {
+    margin: 0 auto;
+    display: inline-block;
+  }
+  .loader {
+    position: relative;
+    left: 35%;
+    top: 30%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .avatar {
+    margin: 15px auto;
+    display: inline-block;
+  }
+  .loader {
+    position: relative;
+    left: 35%;
+    top: 30%;
+  }
+}
