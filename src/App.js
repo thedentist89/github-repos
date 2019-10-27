@@ -11,27 +11,35 @@ class App extends Component {
   };
 
   async componentDidMount() {
-    const { data } = await axios.get(
-      `https://api.github.com/search/repositories?q=created:%3E2019-10-01&sort=stars&order=desc&page=${this.state.pages}`
-    );
-    const { items: repos } = data;
-    let pages = this.state.pages;
-    pages++;
-    this.setState({ repos, pages });
+    try {
+      const { data } = await axios.get(
+        `https://api.github.com/search/repositories?q=created:%3E2019-10-01&sort=stars&order=desc&page=${this.state.pages}`
+      );
+      const { items: repos } = data;
+      let pages = this.state.pages;
+      pages++;
+      this.setState({ repos, pages });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   fetchMoreData = async () => {
     let pages = this.state.pages;
     pages++;
-    const { data } = await axios.get(
-      `https://api.github.com/search/repositories?q=created:%3E2019-10-01&sort=stars&order=desc&page=${this.state.pages}`
-    );
-    const { items: repos } = data;
+    try {
+      const { data } = await axios.get(
+        `https://api.github.com/search/repositories?q=created:%3E2019-10-01&sort=stars&order=desc&page=${this.state.pages}`
+      );
+      const { items: repos } = data;
 
-    this.setState({
-      repos: this.state.repos.concat(repos),
-      pages
-    });
+      this.setState({
+        repos: this.state.repos.concat(repos),
+        pages
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {

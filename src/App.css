@@ -71,6 +71,9 @@ body {
   left: 45%;
   top: 40%;
 }
+small {
+  display: inline-block;
+}
 
 /* Safari */
 @-webkit-keyframes spin {
